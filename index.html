@@ -2,6 +2,16 @@
 <html lang="en">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114457754-2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-114457754-2');
+    </script>
+
     <meta charset="UTF-8">
 	<meta content="Flappy Bird,game,Crappy Bird,clone,javascript,html5 game,mobile,canvas,flappy bird source" name="keywords"/>
 	<meta name="description" content="Clone of Flappy bird game in javascript using canvas 2d">
@@ -466,6 +476,8 @@
 
         FB.Pipe = function (x, w) {
 
+            this.img = new Image();
+            this.img.src = "like.png";
             this.centerX = x;
             this.coin = true
             this.w = w;
@@ -485,7 +497,8 @@
             this.render = function () {
 
                 if (this.coin) {
-                    FB.Draw.circle(this.centerX + this.w / 2 - 5, this.centerY - 5, 5, "Gold")
+                    //FB.Draw.circle(this.centerX + this.w / 2 - 5, this.centerY - 5, 5, "Gold");
+                    FB.Draw.Image(this.img, this.centerX + this.w / 2 - 8, this.centerY - 8);
                 }
                 FB.Draw.rect(this.centerX, 0, this.w, this.centerY - 50, '#8ED6FF');
                 FB.Draw.rect(this.centerX, this.centerY + 50, this.w, this.h - this.centerY, '#8ED6FF');
